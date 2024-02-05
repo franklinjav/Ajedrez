@@ -8,6 +8,11 @@ public abstract class Pieza {
 
     //Constructores
 
+    /**
+     * Constructor de Pieza que recibe un pa´rametro de entrada de tipo boolean (color) e inicializa el nombre
+     * al nombre simple de la clase
+     * @param color Boolean
+     */
     public Pieza(boolean color) {
         this.color = color;
         nombre = getClass().getSimpleName();
@@ -15,12 +20,20 @@ public abstract class Pieza {
 
     //Gets y Sets
 
+    /**
+     * Método get para obtener el valor del color
+     * @return Boolean color
+     */
     public boolean getColor() {
         return color;
     }
 
     //toString
 
+    /**
+     * Método toString generado automáticamente
+     * @return toString
+     */
     @Override
     public String toString() {
         return "Pieza{" +
@@ -31,6 +44,11 @@ public abstract class Pieza {
 
     //Métodos
 
+    /**
+     * Método abstracto que recibe un parámetro de entrada de tipo Movimiento (mov) y devuleve un booleano
+     * @param mov Movimiento
+     * @return Boolean
+     */
     public abstract boolean validoMovimiento(Movimiento mov);
     //Preguntar sobre el método pintar pieza
 }
