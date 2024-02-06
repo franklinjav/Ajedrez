@@ -63,4 +63,72 @@ public class Tablero {
         }
         return verdad;
     }
+
+    /**
+     * Método que recibe tres parámetros de entrada de tipo Pieza (figura) y de tipo Entero (fila y columna) que nos permite colocar la pieza
+     * que se recibe por argumento de entrada en la posición indicada.
+     * @param figura Pieza
+     * @param fila Entero
+     * @param columna Entero
+     */
+    public void ponPieza(Pieza figura,int fila,int columna) {
+        if (!hayPieza(fila, columna) || figura.color != tablero[columna][fila].color) {
+            tablero[columna][fila] = figura;
+        }
+    }
+
+    /**
+     * Método que recibe dos parámetros de entrada de tipo Pieza (figura) y de tipo Posicion (pos) que nos permite colocar la pieza
+     * que se recibe por argumento de entrada en la posición indicada
+     * @param figura Pieza
+     * @param pos Posición
+     */
+    public void ponPieza(Pieza figura,Posicion pos) {
+        if (!hayPieza(pos) || figura.color != tablero[pos.getColumna()][pos.getFila()].color) {
+            tablero[pos.getColumna()][pos.getFila()] = figura;
+        }
+    }
+
+    /**
+     * Método que recibe dos argumentos de entrada de tipo Entero (fila y columna) que nos permite poner a null la posición
+     * indicada en el tablero
+     * @param fila Entero
+     * @param columna Entero
+     */
+    public void quitaPieza(int fila,int columna) {
+        if (tablero[columna][fila] != null) {
+            tablero[columna][fila] = null;
+        }
+    }
+
+    /**
+     * Método que recibe un argumento de entrada de tipo Posición (pos) que nos permite poner a null la posición indicada
+     * en el tablero
+     * @param pos Posición
+     */
+    public void quitaPieza(Posicion pos) {
+        if (tablero[pos.getColumna()][pos.getFila()] != null) {
+            tablero[pos.getColumna()][pos.getFila()] = null;
+        }
+    }
+
+    /**
+     * Método que recibe dos argumentos de entrada de tipo Entero (columna y fila) y nos devuelve la Pieza que se encuentra
+     * en esa posición
+     * @param fila Entero
+     * @param columna Entero
+     * @return Pieza
+     */
+    public Pieza devuelvePieza(int fila, int columna) {
+        return tablero[columna][fila];
+    }
+
+    /**
+     * Método que recibe un argumento de entrada de tipo Posición (pos) y nos devuelve la Pieza que se encuentra en esa posición
+     * @param pos Posición
+     * @return Pieza
+     */
+    public Pieza devuelvePieza(Posicion pos) {
+        return tablero[pos.getColumna()][pos.getFila()];
+    }
 }

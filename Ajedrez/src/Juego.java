@@ -5,6 +5,16 @@ public class Juego {
 
     private boolean turno;
 
+    //Constructor
+
+    /**
+     * Constructor que recibe un parámetro de entrada de tipo Boolean (turno) e inicializa el turno a ese valor
+     * @param turno
+     */
+    public Juego(boolean turno) {
+        this.turno = turno;
+    }
+
     //Gets y Sets
 
     /**
