@@ -9,7 +9,7 @@ public class Juego {
 
     /**
      * Constructor que recibe un parámetro de entrada de tipo Boolean (turno) e inicializa el turno a ese valor
-     * @param turno
+     * @param turno Boolean
      */
     public Juego(boolean turno) {
         this.turno = turno;
