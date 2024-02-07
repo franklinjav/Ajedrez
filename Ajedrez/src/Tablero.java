@@ -42,9 +42,9 @@ public class Tablero {
      * @return Boolean verdad
      */
     public boolean hayPieza(Posicion pos){
-        boolean verdad = true;
+        boolean verdad = false;
         if (tablero[pos.getColumna()][pos.getFila()] == null) {
-            verdad = false;
+            verdad = true;
         }
         return verdad;
     }
@@ -57,9 +57,9 @@ public class Tablero {
      * @return Boolean verdad
      */
     public boolean hayPieza(int fila, int columna) {
-        boolean verdad = true;
+        boolean verdad = false;
         if (tablero[columna][fila] == null) {
-            verdad = false;
+            verdad = true;
         }
         return verdad;
     }
@@ -84,7 +84,7 @@ public class Tablero {
      * @param pos Posición
      */
     public void ponPieza(Pieza figura,Posicion pos) {
-        if (!hayPieza(pos) || figura.color != tablero[pos.getColumna()][pos.getFila()].color) {
+        if (hayPieza(pos) || figura.color != tablero[pos.getColumna()][pos.getFila()].color) {
             tablero[pos.getColumna()][pos.getFila()] = figura;
         }
     }
@@ -107,9 +107,7 @@ public class Tablero {
      * @param pos Posición
      */
     public void quitaPieza(Posicion pos) {
-        if (tablero[pos.getColumna()][pos.getFila()] != null) {
-            tablero[pos.getColumna()][pos.getFila()] = null;
-        }
+        tablero[pos.getColumna()][pos.getFila()] = null;
     }
 
     /**
