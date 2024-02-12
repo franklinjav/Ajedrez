@@ -12,8 +12,20 @@ public class Tablero {
      */
     public Tablero() {
         tablero[0][0] = new Torre(true);
+        tablero[0][1] = new Caballo(true);
+        tablero[0][2] = new Alfil(true);
+        tablero[0][3] = new Rey(true);
+        tablero[0][4] = new Reina(true);
+        tablero[0][5] = new Alfil(true);
+        tablero[0][6] = new Caballo(true);
         tablero[0][7] = new Torre(true);
         tablero[7][0] = new Torre(false);
+        tablero[7][1] = new Caballo(false);
+        tablero[7][2] = new Alfil(false);
+        tablero[7][3] = new Rey(false);
+        tablero[7][4] = new Reina(false);
+        tablero[7][5] = new Alfil(false);
+        tablero[7][6] = new Caballo(false);
         tablero[7][7] = new Torre(false);
     }
 
@@ -26,9 +38,9 @@ public class Tablero {
         for (int i = 0; i < tablero.length; i++) {
             for (int j = 0; j < tablero.length; j++) {
                 if (tablero[i][j] != null) {
-                    System.out.print(tablero[i][j].getClass().getSimpleName() + " ");
+                    System.out.print(tablero[i][j].pintarPieza() + "  ");
                 } else {
-                    System.out.print("nada ");
+                    System.out.print("\u29C9" + "  ");
                 }
             }
             System.out.println();

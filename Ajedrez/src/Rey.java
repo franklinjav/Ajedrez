@@ -13,4 +13,9 @@ public class Rey extends Pieza{
     public boolean validoMovimiento(Movimiento mov) {
         return false;
     }
+
+    @Override
+    public String pintarPieza() {
+        return color ? "\u2654" : "\u265A";
+    }
 }

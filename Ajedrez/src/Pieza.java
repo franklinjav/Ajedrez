@@ -50,5 +50,10 @@ public abstract class Pieza {
      * @return Boolean
      */
     public abstract boolean validoMovimiento(Movimiento mov);
-    //Preguntar sobre el método pintar pieza
+
+    /**
+     * Método abstracto usado para pintar cada pieza con si respectivo unicode
+     * @return Unicode String
+     */
+    public abstract String pintarPieza();
 }

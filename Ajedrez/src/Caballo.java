@@ -1,15 +1,16 @@
-public class Alfil extends Pieza{
+public class Caballo extends Pieza{
 
-    public Alfil(boolean color) {
+    public Caballo(Boolean color) {
         super(color);
     }
+
     @Override
     public boolean validoMovimiento(Movimiento mov) {
-        return mov.esDiagonal();
+        return true;
     }
 
     @Override
     public String pintarPieza() {
-        return color ? "\u2657" : "\u265D";
+        return color ? "\u2658" : "\u265E";
     }
 }

@@ -11,4 +11,9 @@ public class Torre extends Pieza{
     public boolean validoMovimiento(Movimiento mov) {
         return mov.esVertical() || mov.esHorizontal();
     }
+
+    @Override
+    public String pintarPieza() {
+        return color ? "\u2656" : "\u265C";
+    }
 }
