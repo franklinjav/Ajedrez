@@ -16,8 +16,9 @@ public class Main {
                 if (juego.jugada(jugadab,tablero) != null) {
                     if (!tablero.hayPieza(juego.jugada(jugadab, tablero).getPosIni())) {
                         if (tablero.hayPieza(juego.jugada(jugadab, tablero).getPosFin())) {
+                            Posicion pos = juego.jugada(jugadab,tablero).getPosIni();
                             tablero.ponPieza(tablero.devuelvePieza(juego.jugada(jugadab,tablero).getPosIni()), juego.jugada(jugadab,tablero).getPosFin());
-                            tablero.quitaPieza(juego.jugada(jugadab,tablero).getPosIni());
+                            tablero.quitaPieza(pos);
                             cont++;
                         }
                     }
