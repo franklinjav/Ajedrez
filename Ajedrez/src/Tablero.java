@@ -141,4 +141,78 @@ public class Tablero {
     public Pieza devuelvePieza(Posicion pos) {
         return tablero[pos.getColumna()][pos.getFila()];
     }
+
+    /**
+     *
+     * @param mov
+     * @return
+     */
+    public boolean hayPiezasEntre(Movimiento mov) {
+        boolean verdad = false;
+        if (mov.esVertical()) {
+            if (mov.saltoVertical(mov.getPosIni(),mov.getPosFin()) < 0) {
+                boolean salida1 = false;
+                for (int i = mov.posIni.getColumna(); i >= mov.posFin.getColumna(); i++) {
+                    for (int j = mov.posIni.getFila(); j < mov.posFin.getFila() && salida1 != true; j++) {
+                        if (tablero[i][j] != null) {
+                            verdad = true;
+                            salida1 = true;
+                        }
+                    }
+                }
+            } else if (mov.saltoVertical(mov.getPosIni(),mov.getPosFin()) > 0) {
+                boolean salida2 = false;
+                for (int i = mov.posIni.getColumna(); i >= mov.posFin.getColumna(); i++) {
+                    for (int j = mov.posIni.getFila(); j > mov.posFin.getFila() && salida2 != true; j--) {
+                        if (tablero[i][j] != null) {
+                            verdad = true;
+                            salida2 = true;
+                        }
+                    }
+                }
+            }
+        } else if (mov.esHorizontal()) {
+            if (mov.saltoHorizontal(mov.posIni,mov.posFin) < 0) {
+                boolean salida3 = false;
+                for (int i = mov.posIni.getFila(); i >= mov.posFin.getFila() ; i++) {
+                    for (int j = mov.posIni.getColumna(); j < mov.posFin.getColumna() && salida3 != true; j++) {
+                        if (tablero[i][j] != null) {
+                            verdad = true;
+                            salida3 = true;
+                        }
+                    }
+                }
+            } else if (mov.saltoHorizontal(mov.posIni,mov.posFin) > 0) {
+                boolean salida4 = false;
+                for (int i = mov.posIni.getFila(); i >= mov.posFin.getFila() ; i++) {
+                    for (int j = mov.posIni.getColumna(); j < mov.posFin.getColumna() && salida4 != true; j--) {
+                        if (tablero[i][j] != null) {
+                            verdad = true;
+                            salida4 = true;
+                        }
+                    }
+                }
+            }
+        } else if (mov.esDiagonal()) {
+            if (mov.saltoDiagonal(mov.posIni,mov.posFin) < 0) {
+                boolean salida5 = false;
+                for (int i = mov.posIni.getColumna(), j = mov.getPosIni().getFila(); i > mov.getPosFin().getColumna() && salida5 != true; i--,j--) {
+                    if (tablero[i][j] != null) {
+                        salida5 = true;
+                        verdad = true;
+                    }
+                }
+            } else if (mov.saltoDiagonal(mov.posIni,mov.posFin) > 0) {
+                boolean salida6 = false;
+                for (int i = mov.posIni.getColumna(), j = mov.getPosIni().getFila(); i < mov.getPosFin().getColumna() && salida6 != true; i++,j++) {
+                    if (tablero[i][j] != null) {
+                        salida6 = true;
+                        verdad = true;
+                    }
+                }
+            }
+
+        }
+        return verdad;
+    }
 }
