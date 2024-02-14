@@ -143,7 +143,7 @@ public class Tablero {
     }
 
     /**
-     *
+     *Método que recibe un argumento de entrada de tipo Movimiento (mov) y nos devuelve un booleano que nos
      * @param mov
      * @return
      */
@@ -194,23 +194,6 @@ public class Tablero {
                 }
             }
         } else if (mov.esDiagonal()) {
-            if (mov.saltoDiagonal(mov.posIni,mov.posFin) < 0) {
-                boolean salida5 = false;
-                for (int i = mov.posIni.getColumna(), j = mov.getPosIni().getFila(); i > mov.getPosFin().getColumna() && salida5 != true; i--,j--) {
-                    if (tablero[i][j] != null) {
-                        salida5 = true;
-                        verdad = true;
-                    }
-                }
-            } else if (mov.saltoDiagonal(mov.posIni,mov.posFin) > 0) {
-                boolean salida6 = false;
-                for (int i = mov.posIni.getColumna(), j = mov.getPosIni().getFila(); i < mov.getPosFin().getColumna() && salida6 != true; i++,j++) {
-                    if (tablero[i][j] != null) {
-                        salida6 = true;
-                        verdad = true;
-                    }
-                }
-            }
 
         }
         return verdad;

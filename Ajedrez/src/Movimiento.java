@@ -146,19 +146,4 @@ public class Movimiento {
         return cant;
     }
 
-    /**
-     * Método saltoDiagonal que recibe dos parámetros de entrada de tipo posición que corresponden
-     * a la posición inicial y final (posIni y posFin) y nos devuelve un entero (cant) que nos indica el número
-     * de saltos diagonales
-     * @param posIni Posición Inicial
-     * @param posFin Posición Final
-     * @return cant Entero
-     */
-    public int saltoDiagonal(Posicion posIni,Posicion posFin) {
-        int cant = 0;
-        if (esDiagonal()) {
-            cant = posIni.getColumna() - posFin.getColumna();
-        }
-        return cant;
-    }
 }
