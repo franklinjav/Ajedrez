@@ -11,6 +11,12 @@ public class Rey extends Pieza{
 
     @Override
     public boolean validoMovimiento(Movimiento mov) {
+        boolean verdad = false;
+        if (mov.esDiagonal() || mov.esHorizontal() || mov.esVertical()) {
+            if (Math.abs(mov.saltoVertical(mov.getPosIni(),mov.getPosFin())) == 1 || Math.abs(mov.saltoHorizontal(mov.getPosIni(),mov.getPosFin())) == 1) {
+                verdad = true;
+            }
+        }
         return false;
     }
 
