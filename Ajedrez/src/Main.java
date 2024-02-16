@@ -7,9 +7,9 @@ public class Main {
         boolean turno = true;
         Juego juego = new Juego(turno);
         int cont = 0;
-        while (cont < 30) {
+        while (turno) {
             tablero.pintarTablero();
-            if (turno == true) {
+            if (turno) {
                 System.out.println("Turnos de las fichas blancas");
                 System.out.println("Introduce una jugada, ejemplo: A5B6");
                 String jugadab = teclado.nextLine();

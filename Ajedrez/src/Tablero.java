@@ -27,6 +27,15 @@ public class Tablero {
         tablero[7][5] = new Alfil(false);
         tablero[7][6] = new Caballo(false);
         tablero[7][7] = new Torre(false);
+        for (int i = 1; i < 7; i = i+5) {
+            for (int j = 0; j < tablero.length; j++) {
+                if (i == 1) {
+                    tablero[i][j] = new Peon(true);
+                } else {
+                    tablero[i][j] = new Peon(false);
+                }
+            }
+        }
     }
 
     //Métodos
@@ -38,13 +47,24 @@ public class Tablero {
         for (int i = 0; i < tablero.length; i++) {
             for (int j = 0; j < tablero.length; j++) {
                 if (tablero[i][j] != null) {
-                    System.out.print(tablero[i][j].pintarPieza() + "  ");
+                    if (j == 7) {
+                        System.out.print(tablero[i][j].pintarPieza() + "  " + (i+1));
+                    } else {
+                        System.out.print(tablero[i][j].pintarPieza() + "  ");
+                    }
+                } else if (j == 7){
+                    System.out.print("\u29C9" + "  " + (i+1));
                 } else {
                     System.out.print("\u29C9" + "  ");
                 }
             }
             System.out.println();
         }
+        char letra = 'a';
+        for (int i = 0; i < tablero.length; i++, letra++) {
+            System.out.print(letra + "   ");
+        }
+        System.out.println();
     }
 
     /**
