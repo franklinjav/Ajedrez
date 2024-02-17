@@ -51,7 +51,7 @@ public class Juego {
             int posiy2 = jugada.charAt(3) - 49;
             if (posix1 >= 0 && posix1 <= 7 && posiy1 >= 0 && posiy1<= 7 && posix2 >= 0 && posix2 <= 7 && posiy2 >= 0 && posiy2<= 7) {
                 if (tablero.hayPieza(posix2, posiy2)) {
-                    return new Movimiento(new Posicion(posix1, posiy1), new Posicion(posix2, posiy2));
+                    return new Movimiento(new Posicion(posiy1, posix1), new Posicion(posiy2, posix2));
                 }
             }
         }

@@ -6,27 +6,35 @@ public class Main {
         Tablero tablero = new Tablero();
         boolean turno = true;
         Juego juego = new Juego(turno);
-        int cont = 0;
-        while (turno) {
+        boolean muerte = false;
+        while (!muerte) {
             tablero.pintarTablero();
             if (turno) {
-                System.out.println("Turnos de las fichas blancas");
-                System.out.println("Introduce una jugada, ejemplo: A5B6");
-                String jugadab = teclado.nextLine();
-                if (juego.jugada(jugadab,tablero) != null) {
-                    if (!tablero.hayPieza(juego.jugada(jugadab, tablero).getPosIni())) {
-                        if (tablero.hayPieza(juego.jugada(jugadab, tablero).getPosFin())) {
-                            Posicion pos = juego.jugada(jugadab,tablero).getPosIni();
-                            tablero.ponPieza(tablero.devuelvePieza(juego.jugada(jugadab,tablero).getPosIni()), juego.jugada(jugadab,tablero).getPosFin());
-                            tablero.quitaPieza(pos);
-                            cont++;
+                System.out.println("Turnos de las blancas");
+                System.out.println("Introduzca una juegada, por ejemplo : A5A6");
+                String jugadam = teclado.nextLine();
+                Posicion pos = juego.jugada(jugadam,tablero).getPosIni();
+                Posicion pos2 = juego.jugada(jugadam,tablero).getPosFin();
+                if (juego.jugada(jugadam,tablero) != null) {
+                    if (tablero.hayPieza(pos)) {
+                        if (tablero.devuelvePieza(pos).validoMovimiento(juego.jugada(jugadam,tablero))) {
+                            if (!tablero.hayPieza(pos2)) {
+                                if (tablero.devuelvePieza(pos).getClass().getSimpleName().equalsIgnoreCase("peon")) {
+                                    tablero.devuelvePieza(pos).setPaso(true);
+                                }
+                                tablero.ponPieza(tablero.devuelvePieza(pos), pos2);
+                                tablero.quitaPieza(pos);
+                            }
+                        } else {
+                            System.out.println("La pieza que seleccionada no puede realizar ese movimiento");
                         }
+                    } else {
+                        System.out.println("No hay pieza en la posición inicial indicada");
                     }
                 } else {
                     System.out.println("La jugada no es válida");
                 }
             }
         }
-
     }
 }

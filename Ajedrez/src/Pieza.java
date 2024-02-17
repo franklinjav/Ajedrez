@@ -2,7 +2,7 @@
 
 public abstract class Pieza {
     //Atributos
-
+    private boolean paso;
     protected boolean color;
     protected String nombre;
 
@@ -16,6 +16,7 @@ public abstract class Pieza {
     public Pieza(boolean color) {
         this.color = color;
         nombre = getClass().getSimpleName();
+        paso = false;
     }
 
     //Gets y Sets
@@ -26,6 +27,14 @@ public abstract class Pieza {
      */
     public boolean getColor() {
         return color;
+    }
+
+    public boolean getPaso() {
+        return paso;
+    }
+
+    public void setPaso(boolean paso) {
+        this.paso = paso;
     }
 
     //toString

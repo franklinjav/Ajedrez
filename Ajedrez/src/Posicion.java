@@ -3,8 +3,8 @@
 public class Posicion {
     //Atributos
 
-    private int fila;
     private int columna;
+    private int fila;
 
     //Constructores
 
@@ -12,8 +12,8 @@ public class Posicion {
      * Constructor que inicializa la posición a 0 (tanto filas como columnas)
      */
     public Posicion() {
-        fila = 0;
         columna = 0;
+        fila = 0;
     }
 
     /**
@@ -22,9 +22,9 @@ public class Posicion {
      * @param fila Entero
      * @param columna Entero
      */
-    public Posicion(int fila, int columna) {
-        this.fila = fila;
+    public Posicion(int columna, int fila) {
         this.columna = columna;
+        this.fila = fila;
     }
 
     //Gets y Sets

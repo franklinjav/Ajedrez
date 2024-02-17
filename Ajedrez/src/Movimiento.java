@@ -82,7 +82,7 @@ public class Movimiento {
      */
     public boolean esVertical() {
         boolean vertical = false;
-        if (posIni.getColumna() == posFin.getColumna() && posIni.getFila() != posFin.getFila()) {
+        if (posIni.getFila() == posFin.getFila() && posIni.getColumna() != posFin.getColumna()) {
             vertical = true;
         }
         return vertical;
@@ -108,7 +108,7 @@ public class Movimiento {
      */
     public boolean esDiagonal() {
         boolean diagonal = false;
-        if (Math.abs(posIni.getColumna() - posFin.getColumna()) == Math.abs(posIni.getFila() - posFin.getFila())) {
+        if (Math.abs(posIni.getFila() - posFin.getFila()) == Math.abs(posIni.getColumna() - posFin.getColumna())) {
             diagonal = true;
         }
         return diagonal;
@@ -136,7 +136,6 @@ public class Movimiento {
      * @return cant Entero
      */
     public int saltoVertical(Posicion posIni,Posicion posFin) {
-        int cant = posIni.getFila() - posFin.getFila();
-        return cant;
+        return posIni.getColumna() - posFin.getColumna();
     }
 }
