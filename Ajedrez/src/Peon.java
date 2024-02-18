@@ -15,7 +15,7 @@ public class Peon extends Pieza{
                     verdad = true;
                 }
             } else if (color && !getPaso()) {
-                if (mov.saltoVertical(mov.getPosIni(), mov.getPosFin()) == -2 || mov.saltoVertical(mov.getPosIni(), mov.getPosFin()) == -2) {
+                if (mov.saltoVertical(mov.getPosIni(), mov.getPosFin()) == -2 || mov.saltoVertical(mov.getPosIni(), mov.getPosFin()) == -1) {
                     verdad = true;
                 }
             } else if (color && getPaso()) {

@@ -95,7 +95,7 @@ public class Movimiento {
      */
     public boolean esHorizontal() {
         boolean horizontal = false;
-        if (posIni.getFila() == posFin.getFila() && posIni.getColumna() != posFin.getColumna()) {
+        if (posIni.getColumna() == posFin.getColumna() && posIni.getFila() != posFin.getFila()) {
             horizontal = true;
         }
         return horizontal;
