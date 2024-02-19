@@ -24,6 +24,11 @@ public class Peon extends Pieza{
                 }
             }
         }
+        if (mov.esDiagonal()) {
+            if (Math.abs(mov.saltoVertical(mov.getPosIni(),mov.getPosFin())) == 1 || Math.abs(mov.saltoHorizontal(mov.getPosIni(),mov.getPosFin())) == 1) {
+                verdad = true;
+            }
+        }
         return verdad;
     }
 
