@@ -16,32 +16,36 @@ public class Main {
                 Posicion pos = juego.jugada(jugadam,tablero).getPosIni();
                 Posicion pos2 = juego.jugada(jugadam,tablero).getPosFin();
                 if (juego.jugada(jugadam,tablero) != null) {
-                    if (tablero.hayPieza(pos) && tablero.devuelvePieza(pos).getColor()) {
-                        if (tablero.devuelvePieza(pos).validoMovimiento(juego.jugada(jugadam,tablero))) {
-                            if (tablero.devuelvePieza(pos).getClass().getSimpleName().equalsIgnoreCase("peon")) {
-                                if (!tablero.hayPieza(pos2) && !juego.jugada(jugadam,tablero).esDiagonal()) {
+                    if (tablero.hayPieza(pos) && !tablero.devuelvePieza(pos).getColor()) {
+                        if (tablero.devuelvePieza(pos).validoMovimiento(juego.jugada(jugadam, tablero))) {
+                            if (!tablero.hayPiezasEntre(juego.jugada(jugadam,tablero))) {
+                                if (tablero.devuelvePieza(pos).getClass().getSimpleName().equalsIgnoreCase("peon")) {
+                                    if (!tablero.hayPieza(pos2) && !juego.jugada(jugadam, tablero).esDiagonal()) {
+                                        tablero.devuelvePieza(pos).setPaso(true);
+                                        tablero.ponPieza(tablero.devuelvePieza(pos), pos2);
+                                        tablero.quitaPieza(pos);
+                                        turno = true;
+                                    } else if (tablero.hayPieza(pos2) && tablero.devuelvePieza(pos2).getColor() != tablero.devuelvePieza(pos).getColor()) {
+                                        tablero.devuelvePieza(pos).setPaso(true);
+                                        tablero.ponPieza(tablero.devuelvePieza(pos), pos2);
+                                        tablero.quitaPieza(pos);
+                                        turno = true;
+                                    } else {
+                                        System.out.println("Movimiento no válido");
+                                    }
+                                } else if (!tablero.hayPieza(pos2) || tablero.devuelvePieza(pos2).getColor() != tablero.devuelvePieza(pos).getColor()) {
                                     tablero.devuelvePieza(pos).setPaso(true);
                                     tablero.ponPieza(tablero.devuelvePieza(pos), pos2);
                                     tablero.quitaPieza(pos);
                                     turno = true;
-                                } else if (tablero.hayPieza(pos2) && tablero.devuelvePieza(pos2).getColor() != tablero.devuelvePieza(pos).getColor()) {
-                                    tablero.devuelvePieza(pos).setPaso(true);
-                                    tablero.ponPieza(tablero.devuelvePieza(pos), pos2);
-                                    tablero.quitaPieza(pos);
-                                    turno = true;
-                                } else {
-                                    System.out.println("Movimiento no válido");
                                 }
-                            }else if (!tablero.hayPieza(pos2) || tablero.devuelvePieza(pos2).getColor() != tablero.devuelvePieza(pos).getColor()) {
-                                tablero.devuelvePieza(pos).setPaso(true);
-                                tablero.ponPieza(tablero.devuelvePieza(pos), pos2);
-                                tablero.quitaPieza(pos);
-                                turno = true;
+                            } else {
+                                System.out.println("La pieza que seleccionada no puede realizar ese movimiento");
                             }
                         } else {
-                            System.out.println("La pieza que seleccionada no puede realizar ese movimiento");
+                            System.out.println("Movimiento no válido");
                         }
-                    } else {
+                    }else {
                         System.out.println("Movimiento no válido");
                     }
                 } else {
