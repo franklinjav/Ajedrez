@@ -32,6 +32,14 @@ public class Peon extends Pieza{
         return verdad;
     }
 
+    public boolean promocion(Movimiento mov){
+        boolean verdad = false;
+        if (mov.getPosFin().getColumna() == 0 || mov.getPosFin().getColumna() == 0) {
+            verdad = true;
+        }
+        return verdad;
+    }
+
     @Override
     public String pintarPieza() {
         return color ? "\u2659" : "\u265F";

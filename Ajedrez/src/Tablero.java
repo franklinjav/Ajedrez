@@ -1,4 +1,4 @@
-
+import java.util.Scanner;
 
 public class Tablero {
     //Atributos
@@ -201,5 +201,26 @@ public class Tablero {
 
         }
         return verdad;
+    }
+
+    public void menu(Posicion pos) {
+        Scanner teclado = new Scanner(System.in);
+        int opcion = 10;
+        do {
+            System.out.println("Promoción de peón, introduzca:\n1 Reina\n2 Torre\n3 Alfil\n4 Caballo");
+            opcion = teclado.nextInt();
+            if (opcion < 1 || opcion > 4) {
+                System.out.println("Opción no válida, vuleva a intentarlo");
+            }
+        } while (opcion < 1 || opcion > 4);
+        if (opcion == 1) {
+            tablero[pos.getColumna()][pos.getFila()] = new Reina(tablero[pos.getColumna()][pos.getFila()].getColor());
+        } else if (opcion == 2) {
+            tablero[pos.getColumna()][pos.getFila()] = new Torre(tablero[pos.getColumna()][pos.getFila()].getColor());
+        } else if (opcion == 3) {
+            tablero[pos.getColumna()][pos.getFila()] = new Alfil(tablero[pos.getColumna()][pos.getFila()].getColor());
+        } else if (opcion == 4) {
+            tablero[pos.getColumna()][pos.getFila()] = new Caballo(tablero[pos.getColumna()][pos.getFila()].getColor());
+        }
     }
 }

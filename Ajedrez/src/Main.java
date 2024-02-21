@@ -21,15 +21,30 @@ public class Main {
                             if (!tablero.hayPiezasEntre(juego.jugada(jugadam,tablero))) {
                                 if (tablero.devuelvePieza(pos).getClass().getSimpleName().equalsIgnoreCase("peon")) {
                                     if (!tablero.hayPieza(pos2) && !juego.jugada(jugadam, tablero).esDiagonal()) {
-                                        tablero.devuelvePieza(pos).setPaso(true);
-                                        tablero.ponPieza(tablero.devuelvePieza(pos), pos2);
-                                        tablero.quitaPieza(pos);
-                                        turno = true;
+                                            if (tablero.devuelvePieza(pos2) != null && tablero.devuelvePieza(pos2).getClass().getSimpleName().equalsIgnoreCase("Rey")){
+                                                muerte = true;
+                                                System.out.println("Ganan las blancas");
+                                            }
+                                            tablero.devuelvePieza(pos).setPaso(true);
+                                            tablero.ponPieza(tablero.devuelvePieza(pos), pos2);
+                                            tablero.quitaPieza(pos);
+                                            turno = true;
+                                            if (pos2.getColumna() == 0) {
+                                                tablero.menu(pos2);
+                                            }
                                     } else if (tablero.hayPieza(pos2) && tablero.devuelvePieza(pos2).getColor() != tablero.devuelvePieza(pos).getColor()) {
+                                        if (tablero.devuelvePieza(pos2) != null && tablero.devuelvePieza(pos2).getClass().getSimpleName().equalsIgnoreCase("Rey")){
+                                            muerte = true;
+                                            System.out.println("Ganan las blancas");
+                                        }
                                         tablero.devuelvePieza(pos).setPaso(true);
+                                        tablero.quitaPieza(pos2);
                                         tablero.ponPieza(tablero.devuelvePieza(pos), pos2);
                                         tablero.quitaPieza(pos);
                                         turno = true;
+                                        if (pos2.getColumna() == 0) {
+                                            tablero.menu(pos2);
+                                        }
                                     } else {
                                         System.out.println("Movimiento no válido");
                                     }
@@ -63,15 +78,29 @@ public class Main {
                             if (!tablero.hayPiezasEntre(juego.jugada(jugadam,tablero))) {
                                 if (tablero.devuelvePieza(pos).getClass().getSimpleName().equalsIgnoreCase("peon")) {
                                     if (!tablero.hayPieza(pos2) && !juego.jugada(jugadam, tablero).esDiagonal()) {
+                                        if (tablero.devuelvePieza(pos2) != null && tablero.devuelvePieza(pos2).getClass().getSimpleName().equalsIgnoreCase("Rey")) {
+                                            muerte = true;
+                                            System.out.println("Ganan las negras");
+                                        }
                                         tablero.devuelvePieza(pos).setPaso(true);
                                         tablero.ponPieza(tablero.devuelvePieza(pos), pos2);
                                         tablero.quitaPieza(pos);
                                         turno = false;
+                                        if (pos2.getColumna() == 7) {
+                                            tablero.menu(pos2);
+                                        }
                                     } else if (tablero.hayPieza(pos2) && tablero.devuelvePieza(pos2).getColor() != tablero.devuelvePieza(pos).getColor()) {
+                                        if (tablero.devuelvePieza(pos2) != null && tablero.devuelvePieza(pos2).getClass().getSimpleName().equalsIgnoreCase("Rey")){
+                                            muerte = true;
+                                            System.out.println("Ganan las negras");
+                                        }
                                         tablero.devuelvePieza(pos).setPaso(true);
                                         tablero.ponPieza(tablero.devuelvePieza(pos), pos2);
                                         tablero.quitaPieza(pos);
                                         turno = false;
+                                        if (pos2.getColumna() == 0) {
+                                            tablero.menu(pos2);
+                                        }
                                     } else {
                                         System.out.println("Movimiento no válido");
                                     }

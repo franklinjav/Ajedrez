@@ -17,7 +17,7 @@ public class Rey extends Pieza{
                 verdad = true;
             }
         }
-        return false;
+        return verdad;
     }
 
     @Override
