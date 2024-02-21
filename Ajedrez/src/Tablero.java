@@ -223,4 +223,11 @@ public class Tablero {
             tablero[pos.getColumna()][pos.getFila()] = new Caballo(tablero[pos.getColumna()][pos.getFila()].getColor());
         }
     }
+    public boolean promocion(Posicion pos){
+        boolean verdad = false;
+        if (pos.getColumna() == 0 || pos.getColumna() == 7) {
+            verdad = true;
+        }
+        return verdad;
+    }
 }

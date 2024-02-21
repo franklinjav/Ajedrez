@@ -29,7 +29,7 @@ public class Main {
                                             tablero.ponPieza(tablero.devuelvePieza(pos), pos2);
                                             tablero.quitaPieza(pos);
                                             turno = true;
-                                            if (pos2.getColumna() == 0) {
+                                            if (tablero.promocion(pos2)) {
                                                 tablero.menu(pos2);
                                             }
                                     } else if (tablero.hayPieza(pos2) && tablero.devuelvePieza(pos2).getColor() != tablero.devuelvePieza(pos).getColor()) {
@@ -42,7 +42,7 @@ public class Main {
                                         tablero.ponPieza(tablero.devuelvePieza(pos), pos2);
                                         tablero.quitaPieza(pos);
                                         turno = true;
-                                        if (pos2.getColumna() == 0) {
+                                        if (tablero.promocion(pos2)) {
                                             tablero.menu(pos2);
                                         }
                                     } else {
@@ -50,6 +50,7 @@ public class Main {
                                     }
                                 } else if (!tablero.hayPieza(pos2) || tablero.devuelvePieza(pos2).getColor() != tablero.devuelvePieza(pos).getColor()) {
                                     tablero.devuelvePieza(pos).setPaso(true);
+                                    tablero.quitaPieza(pos2);
                                     tablero.ponPieza(tablero.devuelvePieza(pos), pos2);
                                     tablero.quitaPieza(pos);
                                     turno = true;
@@ -83,10 +84,11 @@ public class Main {
                                             System.out.println("Ganan las negras");
                                         }
                                         tablero.devuelvePieza(pos).setPaso(true);
+                                        tablero.quitaPieza(pos2);
                                         tablero.ponPieza(tablero.devuelvePieza(pos), pos2);
                                         tablero.quitaPieza(pos);
                                         turno = false;
-                                        if (pos2.getColumna() == 7) {
+                                        if (tablero.promocion(pos2)) {
                                             tablero.menu(pos2);
                                         }
                                     } else if (tablero.hayPieza(pos2) && tablero.devuelvePieza(pos2).getColor() != tablero.devuelvePieza(pos).getColor()) {
@@ -95,10 +97,11 @@ public class Main {
                                             System.out.println("Ganan las negras");
                                         }
                                         tablero.devuelvePieza(pos).setPaso(true);
+                                        tablero.quitaPieza(pos2);
                                         tablero.ponPieza(tablero.devuelvePieza(pos), pos2);
                                         tablero.quitaPieza(pos);
                                         turno = false;
-                                        if (pos2.getColumna() == 0) {
+                                        if (tablero.promocion(pos2)) {
                                             tablero.menu(pos2);
                                         }
                                     } else {
@@ -106,6 +109,7 @@ public class Main {
                                     }
                                 } else if (!tablero.hayPieza(pos2) || tablero.devuelvePieza(pos2).getColor() != tablero.devuelvePieza(pos).getColor()) {
                                     tablero.devuelvePieza(pos).setPaso(true);
+                                    tablero.quitaPieza(pos2);
                                     tablero.ponPieza(tablero.devuelvePieza(pos), pos2);
                                     tablero.quitaPieza(pos);
                                     turno = false;
