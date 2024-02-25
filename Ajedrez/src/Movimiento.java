@@ -123,7 +123,7 @@ public class Movimiento {
      * @return cant Entero
      */
     public int saltoHorizontal(Posicion posIni,Posicion posFin) {
-        int cant = posIni.getColumna() - posFin.getColumna();
+        int cant = posIni.getFila() - posFin.getFila();
         return cant;
     }
 

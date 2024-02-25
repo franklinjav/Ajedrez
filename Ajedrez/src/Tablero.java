@@ -198,7 +198,31 @@ public class Tablero {
                 }
             }
         } else if (mov.esDiagonal()) {
-
+            if (mov.getPosIni().getFila() > mov.getPosFin().getFila() && mov.getPosIni().getColumna() > mov.getPosFin().getColumna()) {
+                for (int i = mov.getPosIni().getFila() - 1, j = mov.getPosIni().getColumna() -1; i > mov.getPosFin().getFila(); i--,j--) {
+                    if (!hayPieza(i,j)) {
+                        verdad = true;
+                    }
+                }
+            } else if (mov.getPosIni().getFila() < mov.getPosFin().getFila() && mov.getPosIni().getColumna() > mov.getPosFin().getColumna()) {
+                for (int i = mov.getPosIni().getFila() + 1, j = mov.getPosIni().getColumna() - 1; i < mov.getPosFin().getFila(); i++,j--) {
+                    if (!hayPieza(i,j)) {
+                        verdad = true;
+                    }
+                }
+            } else if (mov.getPosIni().getFila() > mov.getPosFin().getFila() && mov.getPosIni().getColumna() < mov.getPosFin().getColumna()) {
+                for (int i = mov.getPosIni().getFila() - 1, j = mov.getPosIni().getColumna() + 1; i > mov.getPosFin().getFila(); i--,j++) {
+                    if (!hayPieza(i,j)) {
+                        verdad = true;
+                    }
+                }
+            } else if (mov.getPosIni().getFila() < mov.getPosFin().getFila() && mov.getPosIni().getColumna() < mov.getPosFin().getColumna()) {
+                for (int i = mov.getPosIni().getFila() + 1, j = mov.getPosIni().getColumna() + 1; i < mov.getPosFin().getFila(); i++,j++) {
+                    if (!hayPieza(i,j)) {
+                        verdad = true;
+                    }
+                }
+            }
         }
         return verdad;
     }
