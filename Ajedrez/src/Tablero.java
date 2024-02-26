@@ -41,7 +41,7 @@ public class Tablero {
     //Métodos
 
     /**
-     * Método que permite pintar el nombre de cada pieza en el tablero
+     * Método que permite pintar el unicode de cada pieza en el tablero
      */
     public void pintarTablero() {
         for (int i = 0; i < tablero.length; i++) {

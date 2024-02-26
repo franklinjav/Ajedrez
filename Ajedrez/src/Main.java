@@ -25,27 +25,7 @@ public class Main {
                             if (tablero.devuelvePieza(pos).validoMovimiento(juego.jugada(jugadam, tablero))) {
                                 if (!tablero.hayPiezasEntre(juego.jugada(jugadam, tablero))) {
                                     if (tablero.devuelvePieza(pos).getClass().getSimpleName().equalsIgnoreCase("peon")) {
-                                        if (!tablero.hayPieza(pos2) && !juego.jugada(jugadam, tablero).esDiagonal()) {
-                                            if (tablero.devuelvePieza(pos2) != null && tablero.devuelvePieza(pos2).getClass().getSimpleName().equalsIgnoreCase("Rey")) {
-                                                muerte = true;
-                                                if (!turno) {
-                                                    System.out.println("Ganan las blancas");
-                                                } else {
-                                                    System.out.println("Ganan las negras");
-                                                }
-                                            }
-                                            tablero.devuelvePieza(pos).setPaso(true);
-                                            tablero.ponPieza(tablero.devuelvePieza(pos), pos2);
-                                            tablero.quitaPieza(pos);
-                                            if (!turno) {
-                                                turno = true;
-                                            } else {
-                                                turno = false;
-                                            }
-                                            if (tablero.promocion(pos2)) {
-                                                tablero.menu(pos2);
-                                            }
-                                        } else if (tablero.hayPieza(pos2) && tablero.devuelvePieza(pos2).getColor() != tablero.devuelvePieza(pos).getColor()) {
+                                        if (tablero.hayPieza(pos2) && juego.jugada(jugadam, tablero).esDiagonal()) {
                                             if (tablero.devuelvePieza(pos2) != null && tablero.devuelvePieza(pos2).getClass().getSimpleName().equalsIgnoreCase("Rey")) {
                                                 muerte = true;
                                                 if (!turno) {
@@ -56,6 +36,18 @@ public class Main {
                                             }
                                             tablero.devuelvePieza(pos).setPaso(true);
                                             tablero.quitaPieza(pos2);
+                                            tablero.ponPieza(tablero.devuelvePieza(pos), pos2);
+                                            tablero.quitaPieza(pos);
+                                            if (!turno) {
+                                                turno = true;
+                                            } else {
+                                                turno = false;
+                                            }
+                                            if (tablero.promocion(pos2)) {
+                                                tablero.menu(pos2);
+                                            }
+                                        } else if (!tablero.hayPieza(pos2) && !juego.jugada(jugadam, tablero).esDiagonal()) {
+                                            tablero.devuelvePieza(pos).setPaso(true);
                                             tablero.ponPieza(tablero.devuelvePieza(pos), pos2);
                                             tablero.quitaPieza(pos);
                                             if (!turno) {

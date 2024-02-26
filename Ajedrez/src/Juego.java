@@ -45,19 +45,16 @@ public class Juego {
      */
     public Movimiento jugada(String jugada, Tablero tablero) {
         if (jugada.length() == 4) {
-            if (jugada.toUpperCase().charAt(0) > 72 || jugada.toUpperCase().charAt(0) < 65 || jugada.toUpperCase().charAt(2) > 72 || jugada.toUpperCase().charAt(2) < 65 || jugada.charAt(1) > 56 || jugada.charAt(1) < 49 || jugada.charAt(3) > 56 || jugada.charAt(3) < 49) {
-                return new Movimiento();
-            } else {
-                int posix1 = jugada.toUpperCase().charAt(0) - 65;
-                int posiy1 = jugada.charAt(1) - 49;
-                int posix2 = jugada.toUpperCase().charAt(2) - 65;
-                int posiy2 = jugada.charAt(3) - 49;
-                if (posix1 >= 0 && posix1 <= 7 && posiy1 >= 0 && posiy1 <= 7 && posix2 >= 0 && posix2 <= 7 && posiy2 >= 0 && posiy2 <= 7) {
+            int posix1 = jugada.toUpperCase().charAt(0) - 65;
+            int posiy1 = jugada.charAt(1) - 49;
+            int posix2 = jugada.toUpperCase().charAt(2) - 65;
+            int posiy2 = jugada.charAt(3) - 49;
+            if (posix1 >= 0 && posix1 <= 7 && posiy1 >= 0 && posiy1 <= 7 && posix2 >= 0 && posix2 <= 7 && posiy2 >= 0 && posiy2 <= 7) {
                     //if (tablero.hayPieza(posix2, posiy2)) {
                     return new Movimiento(new Posicion(posiy1, posix1), new Posicion(posiy2, posix2));
                     //}
-                }
             }
+
         }
         return new Movimiento();
     }
