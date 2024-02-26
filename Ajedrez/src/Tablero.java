@@ -14,16 +14,16 @@ public class Tablero {
         tablero[0][0] = new Torre(true);
         tablero[0][1] = new Caballo(true);
         tablero[0][2] = new Alfil(true);
-        tablero[0][3] = new Rey(true);
-        tablero[0][4] = new Reina(true);
+        tablero[0][3] = new Reina(true);
+        tablero[0][4] = new Rey(true);
         tablero[0][5] = new Alfil(true);
         tablero[0][6] = new Caballo(true);
         tablero[0][7] = new Torre(true);
         tablero[7][0] = new Torre(false);
         tablero[7][1] = new Caballo(false);
         tablero[7][2] = new Alfil(false);
-        tablero[7][3] = new Rey(false);
-        tablero[7][4] = new Reina(false);
+        tablero[7][3] = new Reina(false);
+        tablero[7][4] = new Rey(false);
         tablero[7][5] = new Alfil(false);
         tablero[7][6] = new Caballo(false);
         tablero[7][7] = new Torre(false);
@@ -253,5 +253,57 @@ public class Tablero {
             verdad = true;
         }
         return verdad;
+    }
+    public boolean verifEnroque(boolean color) {
+        boolean verdad = false;
+        if (!color) {
+            if (!hayPieza(4,7) && !hayPieza(7,7)) {
+                if (!hayPiezasEntre(new Movimiento(new Posicion(7,4),new Posicion(7,7))) && !devuelvePieza(new Posicion(7,4)).getPaso() && !devuelvePieza(new Posicion(7,7)).getPaso()) {
+                verdad = true;
+                }
+            } else if (!hayPieza(4,7) && !hayPieza(0,7)) {
+                if (!hayPiezasEntre(new Movimiento(new Posicion(7,4),new Posicion(7,0))) && !devuelvePieza(new Posicion(7,4)).getPaso() && !devuelvePieza(new Posicion(7,0)).getPaso()) {
+                    verdad = true;
+                }
+            }
+        }else {
+            if (!hayPieza(4,0) && !hayPieza(7,0)) {
+                if (!hayPiezasEntre(new Movimiento(new Posicion(0,4),new Posicion(0,7))) && !devuelvePieza(new Posicion(0,4)).getPaso() && !devuelvePieza(new Posicion(0,7)).getPaso()) {
+                    verdad = true;
+                }
+            } else if (!hayPieza(4,0) && !hayPieza(0,0)) {
+                if (!hayPiezasEntre(new Movimiento(new Posicion(0,4),new Posicion(0,0))) && !devuelvePieza(new Posicion(0,4)).getPaso() && !devuelvePieza(new Posicion(0,0)).getPaso()) {
+                    verdad = true;
+                }
+            }
+        }
+        return verdad;
+    }
+    public void hacerEnroque(Movimiento mov,boolean color) {
+        if (!color) {
+            if (mov.getPosFin().getFila() == 0) {
+                ponPieza(new Torre(false), new Posicion(7, 3));
+                quitaPieza(new Posicion(7, 0));
+                ponPieza(new Rey(false), new Posicion(7, 2));
+                quitaPieza(new Posicion(7, 4));
+            } else {
+                ponPieza(new Torre(false),new Posicion(7,5));
+                quitaPieza(new Posicion(7, 7));
+                ponPieza(new Rey(false), new Posicion(7, 6));
+                quitaPieza(new Posicion(7, 4));
+            }
+        } else {
+            if (mov.getPosFin().getFila() == 0) {
+                ponPieza(new Torre(true), new Posicion(0, 3));
+                quitaPieza(new Posicion(0, 0));
+                ponPieza(new Rey(false), new Posicion(0, 2));
+                quitaPieza(new Posicion(0, 4));
+            } else {
+                ponPieza(new Torre(true),new Posicion(0,5));
+                quitaPieza(new Posicion(0, 7));
+                ponPieza(new Rey(false), new Posicion(0, 6));
+                quitaPieza(new Posicion(0, 4));
+            }
+        }
     }
 }
