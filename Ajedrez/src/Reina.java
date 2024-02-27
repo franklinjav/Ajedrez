@@ -12,4 +12,5 @@ public class Reina extends Pieza{
     public String pintarPieza() {
         return color ? "\u2655" : "\u265B";
     }
+
 }

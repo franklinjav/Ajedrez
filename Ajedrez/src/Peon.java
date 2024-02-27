@@ -36,4 +36,6 @@ public class Peon extends Pieza{
     public String pintarPieza() {
         return color ? "\u2659" : "\u265F";
     }
+
+
 }

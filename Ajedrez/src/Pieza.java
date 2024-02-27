@@ -37,6 +37,7 @@ public abstract class Pieza {
         this.paso = paso;
     }
 
+
     //toString
 
     /**
@@ -65,4 +66,5 @@ public abstract class Pieza {
      * @return Unicode String
      */
     public abstract String pintarPieza();
+
 }

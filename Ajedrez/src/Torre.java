@@ -16,4 +16,5 @@ public class Torre extends Pieza{
     public String pintarPieza() {
         return color ? "\u2656" : "\u265C";
     }
+
 }

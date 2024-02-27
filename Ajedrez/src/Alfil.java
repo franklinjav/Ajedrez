@@ -1,5 +1,4 @@
 public class Alfil extends Pieza{
-
     public Alfil(boolean color) {
         super(color);
     }
@@ -12,4 +11,6 @@ public class Alfil extends Pieza{
     public String pintarPieza() {
         return color ? "\u2657" : "\u265D";
     }
+
+
 }

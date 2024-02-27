@@ -19,4 +19,5 @@ public class Caballo extends Pieza{
     public String pintarPieza() {
         return color ? "\u2658" : "\u265E";
     }
+
 }

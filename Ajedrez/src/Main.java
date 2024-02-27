@@ -5,7 +5,6 @@ public class Main {
         Scanner teclado = new Scanner(System.in);
         Tablero tablero = new Tablero();
         boolean turno = false;
-        boolean enroque = false;
         Juego juego = new Juego(turno);
         boolean muerte = false;
         while (!muerte) {
@@ -26,7 +25,7 @@ public class Main {
                             if (tablero.hayPieza(pos2)) {
                                 if (tablero.devuelvePieza(pos).getClass().getSimpleName().equalsIgnoreCase("Rey") && tablero.devuelvePieza(pos2).getClass().getSimpleName().equalsIgnoreCase("Torre")) {
                                     if (tablero.verifEnroque(turno)) {
-                                        tablero.hacerEnroque(new Movimiento(pos, pos2), turno);
+                                        tablero.hacerEnroque(juego.jugada(jugadam,tablero), turno);
                                         if (!turno) {
                                             turno = true;
                                         } else {
@@ -36,7 +35,8 @@ public class Main {
                                         System.out.println("No se puede realizar el enroque");
                                     }
                                 }
-                            } else if (tablero.devuelvePieza(pos).validoMovimiento(juego.jugada(jugadam, tablero))) {
+                            }
+                            if (tablero.devuelvePieza(pos) != null && tablero.devuelvePieza(pos).validoMovimiento(juego.jugada(jugadam, tablero))) {
                                 if (!tablero.hayPiezasEntre(juego.jugada(jugadam, tablero))) {
                                     if (tablero.devuelvePieza(pos).getClass().getSimpleName().equalsIgnoreCase("peon")) {
                                         if (tablero.hayPieza(pos2) && juego.jugada(jugadam, tablero).esDiagonal()) {
