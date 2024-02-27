@@ -12,20 +12,20 @@ public class Tablero {
      */
     public Tablero() {
         tablero[0][0] = new Torre(true);
-        //tablero[0][1] = new Caballo(true);
-        //tablero[0][2] = new Alfil(true);
-        //tablero[0][3] = new Reina(true);
+        tablero[0][1] = new Caballo(true);
+        tablero[0][2] = new Alfil(true);
+        tablero[0][3] = new Reina(true);
         tablero[0][4] = new Rey(true);
-        //tablero[0][5] = new Alfil(true);
-        //tablero[0][6] = new Caballo(true);
+        tablero[0][5] = new Alfil(true);
+        tablero[0][6] = new Caballo(true);
         tablero[0][7] = new Torre(true);
         tablero[7][0] = new Torre(false);
-        //tablero[7][1] = new Caballo(false);
-        //tablero[7][2] = new Alfil(false);
-        //tablero[7][3] = new Reina(false);
+        tablero[7][1] = new Caballo(false);
+        tablero[7][2] = new Alfil(false);
+        tablero[7][3] = new Reina(false);
         tablero[7][4] = new Rey(false);
-        //tablero[7][5] = new Alfil(false);
-        //tablero[7][6] = new Caballo(false);
+        tablero[7][5] = new Alfil(false);
+        tablero[7][6] = new Caballo(false);
         tablero[7][7] = new Torre(false);
         for (int i = 1; i < 7; i = i+5) {
             for (int j = 0; j < tablero.length; j++) {
